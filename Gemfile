@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Bootstrap
+gem 'bootstrap', '~> 4.2.1'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
@@ -58,3 +61,6 @@ gem 'devise'
 
 # load environment
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+
+# for file uploads
+gem 'carrierwave', '~> 1.0'
