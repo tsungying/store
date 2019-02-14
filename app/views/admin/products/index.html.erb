@@ -1,0 +1,27 @@
+<h2 class="">Products</h2>
+<%= link_to "Create Product", new_admin_product_url, class: "btn btn-primary float-right" %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Original Price</th>
+      <th scope="col">Discount Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td style="width: 100px;height: 100px">
+          <%= link_to admin_product_path(product) do %>
+            <%= image_tag product.image_url, class: "img-thumbnail img-fluid" if product.image_url.present? %>
+          <% end %>
+        </td>
+        <td><%= link_to product.name, admin_product_path(product) %></td>
+        <td><%= product.original_price %></td>
+        <td><%= product.discount_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

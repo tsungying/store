@@ -1,0 +1,50 @@
+<!--Main Navigation-->
+<header>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark white scrolling-navbar bg-dark">
+      <div class="container">
+
+        <!-- Brand -->
+        <%= link_to root_url, class: "navbar-brand waves-effect" do %>
+          <strong>Membership System</strong>
+        <% end %>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <% if user_signed_in? && current_user.admin %>
+              <li class="nav-item">
+                <%= link_to  "Products", admin_products_url, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to  "Users", admin_users_url, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item">
+              <%= link_to destroy_user_session_url, method: :delete, class: "nav-link waves-effect" do %>
+                Sign out ( <%= current_user.email %> )
+              <% end %>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+  </header>
+  <!--Main Navigation-->

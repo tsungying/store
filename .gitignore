@@ -31,3 +31,5 @@
 
 # Ignore docker files
 docker-compose.yml
+
+public/uploads/*

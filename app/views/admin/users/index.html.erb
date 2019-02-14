@@ -1,0 +1,22 @@
+<h2 class="">Users</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Admin</th>
+      <th scope="col">Premium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></th>
+        <td><%= link_to user.email, admin_user_path(user) %></td>
+        <td><%= user.admin ? raw('<i class="fas fa-check" style="color: #28a745!important"></i>') : raw('<i class="fas fa-times" style="color: #dc3545!important"></i>') %></td>
+        <td><%= user.premium ? raw('<i class="fas fa-check" style="color: #28a745!important"></i>') : raw('<i class="fas fa-times" style="color: #dc3545!important"></i>') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

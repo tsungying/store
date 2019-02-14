@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Premium</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$0</h1>
+          <% if !user_signed_in? || !current_user.try(:premium) %>
+            <%= link_to "Upgrade", upgrade_users_url, class: "btn btn-outline-success", data: {confirm: "Are you sure?"}, method: :post %>
+          <% else %>
+            Upgraded at <%= current_user.upgraded_at %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

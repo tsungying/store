@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  root to: "products#index"
+
+  resources :products, only: [:index]
+  resources :premiums,  only: [:index]
+
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users, only: [] do
+    collection do
+      post :upgrade
+    end
+  end
+
+  namespace :admin do
+    resources :products
+    resources :users, only: [:index, :show, :edit, :update]
+  end
 end

@@ -1,0 +1,8 @@
+<%= image_tag @product.image_url, class: "img-thumbnail" if @product.image_url.present? %>
+
+<p>Name: <%= @product.name %></p>
+<p>Original Price: <%= @product.original_price %></p>
+<p>Discount Price: <%= @product.discount_price %></p>
+
+<%= link_to "Edit Product", edit_admin_product_path(@product), class: "btn btn-primary" %>
+<%= link_to 'Back', admin_products_path, class: "btn btn-secondary" %>

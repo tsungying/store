@@ -1,0 +1,56 @@
+<%= render 'products/premium_ad' %>
+
+<style>
+  p.price {
+    margin-bottom: 0;
+    color: #000;
+    font-weight: 400;
+  }
+
+  span.price-dc {
+    text-decoration: line-through;
+    color: #b3b3b3;
+  }
+</style>
+
+<section class="text-center">
+  <% @products.each_slice(3) do |products_group| %>
+    <div class="row mb-4 wow fadeIn">
+      <% products_group.each do |product| %>
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <!--Card-->
+          <div class="card">
+
+            <!--Card image-->
+            <div class="view overlay ">
+              <% if product.image_url.present? %>
+                <%= image_tag product.image_url, class: "rounded mx-auto d-block", style: "height: 200px; margin-top: 20px;" %>
+              <% end %>
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+                <!--Title-->
+                <h4 class="card-title"><%= product.name %></h4>
+                <!--Text-->
+                <div class="pricing">
+                  <p class="price">
+                    <span class="mr-2 <%= 'price-dc' if user_signed_in? && current_user.premium %>">
+                      $<%= product.original_price %>
+                    </span>
+                    <% if user_signed_in? && current_user.premium %>
+                      <span>$<%= product.discount_price %></span>
+                    <% end %>
+                  </p>
+                </div>
+            </div>
+
+          </div>
+          <!--/.Card-->
+
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>
