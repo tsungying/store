@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'pry', '0.11.3'
+  gem 'pry-rails', '0.3.6'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -66,3 +68,16 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 # for file uploads
 gem 'carrierwave', '~> 1.0'
+
+# ------------ #
+# - BDD Test - #
+# ------------ #
+
+# Use Cucumber test framwork
+group :test do
+  gem 'cucumber', '2.4.0'
+  gem 'cucumber-rails', '1.5.0', require: false
+  gem 'database_cleaner', '1.6.2'
+  gem 'rspec-rails', '3.7.2'
+  gem 'puffing-billy', '1.0.0'
+end
