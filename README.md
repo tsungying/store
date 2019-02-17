@@ -33,7 +33,7 @@ bundle install
 ```
 cp .sample.env .env
 ```
-After create file, set the environment value in the the `.env` file
+After create file, set the environment value in the `.env` file, for example:
 ```
 MYSQL_HOST=127.0.0.1
 MYSQL_USERNAME=root
@@ -42,12 +42,12 @@ MYSQL_PASSWORD=root
 
 ## Setup the database
 
-create a docker-compose.yml
+Create a docker-compose.yml
 ```
 touch docker-compose.yml
 ```
 
-copy the following content:
+Copy the following content:
 ```
 mysql-5.7:
   image: mysql:5.7
@@ -62,7 +62,7 @@ mysql-5.7:
   command: ['--character-set-server=utf8']
 ```
 
-start MySQL server
+Start MySQL server
 ```
 docker-compose up -d
 ```
