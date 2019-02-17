@@ -67,11 +67,16 @@ Start MySQL server
 docker-compose up -d
 ```
 
+Create DB and tables
+```
+bin/rails db:drop db:create db:migrate db:seed
+```
+
 ## Run the app
 ```
 rails s
 ```
-Then visit http://localhost:3000
+Then visit http://localhost:3000 and has a admin account: `email: admin@example.com`, `password: 1234567890`
 
 ## Install for Selenium Webdriver (for test)
 
