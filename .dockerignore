@@ -1,0 +1,40 @@
+# Ignore bundler config.
+.bundle
+
+# Ignore all logfiles and tempfiles.
+log/*
+tmp/*
+!log/.keep
+!tmp/.keep
+!tmp/pids/.keep
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Ignore rvm files
+.ruby-gemset
+.ruby-version
+.versions.conf
+
+# Ignore test files
+test-plans
+coverage
+
+# Ignore doc files
+.yardoc
+doc
+
+# Ignore assets files
+public/assets
+vendor/assets
+node_modules
+yarn.lock
+
+# Ignore env files
+.env*
+!.env.sample
+!.env*.enc
+!.env.test.ci
+
+# Ignore docker files
+docker-compose.yml
