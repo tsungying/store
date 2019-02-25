@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  paginates_per 9
   mount_uploader :image, ImageUploader
 
   validates :name, presence: true

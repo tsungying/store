@@ -12,11 +12,9 @@
       <strong>Offering discounts on all products</strong>
     </p>
 
-    <%= link_to "upgrade now", premiums_url, class: "btn btn-outline-white btn-lg" %>
+    <%= link_to "upgrade now", upgrade_user_url(current_user), class: "btn btn-outline-white btn-lg", data: {confirm: "Are you sure?"}, remote: true, method: :put %>
 
   </div>
   <!-- Content -->
 </section>
 <!--Section: Jumbotron-->
-
-<hr class="my-5">

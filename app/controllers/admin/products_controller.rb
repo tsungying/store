@@ -1,11 +1,12 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
+  before_action :set_product, only: [:show, :edit, :update]
 
   layout 'admin'
 
   def index
-    @products = Product.all
+    @products = Product.all.page(params[:page])
   end
 
   def new
@@ -22,16 +23,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
   end
 
   def edit
-    @product = Product.find_by(id: params[:id])
   end
 
   def update
-    @product = Product.find_by(id: params[:id])
-
     if @product.update(product_params)
       redirect_to [:admin, @product]
     else
@@ -44,6 +41,10 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
+
+  def set_product
+    @product = Product.find_by(id: params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:name, :original_price, :discount_price, :image)

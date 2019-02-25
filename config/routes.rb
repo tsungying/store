@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resources :products, only: [:index]
-  resources :premiums,  only: [:index]
 
   devise_for :users
 
   resources :users, only: [] do
     collection do
-      post :upgrade
+      get :upgrade_information
+    end
+
+    member do
+      put :upgrade
     end
   end
 

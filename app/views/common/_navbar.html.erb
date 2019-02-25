@@ -21,10 +21,18 @@
 
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? && current_user.admin %>
-            <li class="nav-item">
-              <%= link_to "Backend", admin_products_url, class: "nav-link waves-effect" %>
-            </li>
+          <% if user_signed_in? %>
+            <% unless current_user.premium %>
+              <li class="nav-item">
+                <%= link_to "Upgrade to Premium", upgrade_information_users_url, class: "nav-link waves-effect" %>
+              </li>
+            <% end %>
+
+            <% if current_user.admin %>
+              <li class="nav-item">
+                <%= link_to "Backend", admin_products_url, class: "nav-link waves-effect" %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
 

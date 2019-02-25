@@ -69,6 +69,9 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # for file uploads
 gem 'carrierwave', '~> 1.0'
 
+# Pagination
+gem 'kaminari'
+
 # ------------ #
 # - BDD Test - #
 # ------------ #
@@ -80,4 +83,5 @@ group :test do
   gem 'database_cleaner', '1.6.2'
   gem 'rspec-rails', '3.7.2'
   gem 'puffing-billy', '1.0.0'
+  gem 'simplecov', require: false
 end

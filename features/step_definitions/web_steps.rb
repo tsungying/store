@@ -49,3 +49,28 @@ end
 And /^(?:|the .+ )should see the image "([^"]*)"$/ do |image_name|
   expect(page).to have_css("img[src*='#{image_name}']")
 end
+
+Given /^(?:|the .+ )is at (.+)page(?:| - "([^"]*)")$/ do |page_name, expect_path|
+  visit path_to(page_name)
+  if expect_path
+    current_path = URI.parse(current_url).path
+    current_query = URI.parse(current_url).query
+    if current_query.blank?
+      expect(current_path).to eql expect_path
+    else
+      expect("#{current_path}?#{current_query}").to eql expect_path
+    end
+  end
+end
+
+Given /^there are "([^"]*)" products on the website$/ do |n|
+  for i in 1..n.to_i do
+    Product.create(name: "Product #{i}", original_price: 100, discount_price: 80, image: Rails.root.join("features/images/product_02.jpg").open)
+  end
+end
+
+Given /^there are "([^"]*)" users on the website$/ do |n|
+  for i in 1..n.to_i do
+    User.create(email: "test_user_#{i}@example.com", password: '1234567890')
+  end
+end
